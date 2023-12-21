@@ -2,3 +2,24 @@
 Ід має бути введений в інпут (валідація: ід від 1 до 100)
 Якщо знайдено пост, то вивести на сторінку блок з постом і зробити кнопку для отримання комкоментарів до посту.
 Зробити завдання використовуючи проміси, перехопити помилки.*/
+
+const field=document.querySelector('input');
+const btn=document.querySelector('button');
+let post;
+
+
+btn.addEventListener('click',function(){
+    fetch('https://jsonplaceholder.typicode.com/ '+field.value)
+    .then(function(res11) {
+        return res11.json();
+    })
+    .then(function(myData){
+        console.log(myData);
+        post=myData;
+        drow();
+    })
+})
+function drow(){
+    const divElem=document.querySelector('container');
+    console.log(divElem);
+}

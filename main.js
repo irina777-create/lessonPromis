@@ -7,19 +7,31 @@ const field=document.querySelector('input');
 const btn=document.querySelector('button');
 let post;
 
+const button=document.querySelector('.button');
+button.addEventListener('click', handleClick);
 
-btn.addEventListener('click',function(){
-    fetch('https://jsonplaceholder.typicode.com/ '+field.value)
-    .then(function(res11) {
-        return res11.json();
-    })
-    .then(function(myData){
-        console.log(myData);
-        post=myData;
-        drow();
-    })
+function handleClick(even){
+    consolelog('Button clicked');
+}
+
+fetch('https://jsonplaceholder.typicode.com/posts '+ 'value')
+.then(function(res11) {
+    return res11.json();
 })
+.then(function(myData){
+    console.log(myData);
+    post=myData;
+    drow();
+})
+
+
 function drow(){
     const divElem=document.querySelector('container');
     console.log(divElem);
+   
+    divElem.innerHTML+=`
+    ${post.body}
+    
+    
+    `
 }
